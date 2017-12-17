@@ -12,9 +12,15 @@ public class JsonObject extends Json {
 
     @Override
     public String toJson() {
-        // ToDo
-        return null;
+        StringBuffer jsonStringBuff = new StringBuffer("{");
+        for (JsonPair pair : jsonArray){
+            jsonStringBuff.append(pair.key.toJson()).append(":").append(pair.value.toJson()).append(", ");
+        }
+        jsonStringBuff.append("}");
+        String jsonString = jsonStringBuff.toString();
+        return jsonString;
     }
+
 
     public void add(JsonPair jsonPair) {
         jsonArray.add(jsonPair);
