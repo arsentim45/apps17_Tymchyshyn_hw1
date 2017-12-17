@@ -11,7 +11,8 @@ import java.util.List;
 public class Student extends BasicStudent {
 
     public Student(String name, String surname, Integer year, Tuple<String, Integer>... exams) {
-        // ToDo
+        super(name, surname, year);
+        JsonArray exams = new ArrayList<>();
     }
 
     public JsonObject toJsonObject() {

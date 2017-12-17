@@ -40,7 +40,7 @@ public class JSONApp {
 
         name = new JsonPair("name", new JsonString("Andrii"));
         surname = new JsonPair("surname", new JsonString("Rodionov"));;
-        year = new JsonPair("year", new JsonNumber(2));
+        year = new JsonPair("year", new JsonNumber(3));
 
         JsonPair oop = new JsonPair("course", new JsonString("OOP"));
         JsonPair english = new JsonPair("course", new JsonString("English"));
