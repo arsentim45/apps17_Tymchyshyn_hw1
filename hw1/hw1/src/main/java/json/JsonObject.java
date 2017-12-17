@@ -23,7 +23,7 @@ public class JsonObject extends Json {
     public Json find(String name) {
         for(JsonPair pair : jsonArray){
             if(name.equals(pair.key)){
-                return pair.value
+                return pair.value;
             }
 
 
@@ -32,7 +32,15 @@ public class JsonObject extends Json {
     }
 
     public JsonObject projection(String... names) {
-        // ToDo
-        return null;
+        JsonObject obj = new JsonObject();
+        for (String name : names){
+            if (this.find(name) != null){
+                obj.add(new JsonPair(name, this.find(name)));
+            }
+            else {
+                return null;
+            }
+        }
+        return obj;
     }
 }
