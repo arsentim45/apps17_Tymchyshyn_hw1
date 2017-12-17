@@ -36,11 +36,11 @@ public class JSONApp {
 
 
     public static JsonObject sessionResult() {
-        JsonObject jsonObject = null;
+        JsonObject jsonObject = (JsonPair name,JsonPair surname,JsonPair year,JsonPair exams2);
 
-        JsonPair name = new JsonPair("name", new JsonString("Andrii"));
-        JsonPair surname = new JsonPair("surname", new JsonString("Rodionov"));;
-        JsonPair year = new JsonPair("year", new JsonNumber(2));
+        name = new JsonPair("name", new JsonString("Andrii"));
+        surname = new JsonPair("surname", new JsonString("Rodionov"));;
+        year = new JsonPair("year", new JsonNumber(2));
 
         JsonPair oop = new JsonPair("course", new JsonString("OOP"));
         JsonPair english = new JsonPair("course", new JsonString("English"));
@@ -51,14 +51,13 @@ public class JSONApp {
         JsonPair pased = new JsonPair("passed", new JsonBoolean(true));
         JsonPair notpased = new JsonPair("passed", new JsonBoolean(false));
 
-        JsonObject oopexam = new JsonObject("OOP", 3, true);
-        JsonObject englishexam = new JsonObject("English", 5, true);
-        JsonObject mathexam = new JsonObject("Math", 2, false);
+        JsonObject oopexam = new JsonObject(oop, mark3, pased);
+        JsonObject englishexam = new JsonObject(english, mark5, pased);
+        JsonObject mathexam = new JsonObject(math, mark2, notpased);
 
         JsonArray exams = new JsonArray(oopexam, englishexam, mathexam);
-        JsonPair pairExams = new JsonPair("exams", exams);
+        exams2 = new JsonPair("exams", exams);
 
-        return new JsonObject(name, surname, year, pairExams);
         return jsonObject;
     }
 }
