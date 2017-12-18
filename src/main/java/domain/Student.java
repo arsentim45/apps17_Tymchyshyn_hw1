@@ -2,6 +2,7 @@ package domain;
 
 import json.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,11 +10,12 @@ import java.util.List;
  * Created by Andrii_Rodionov on 1/3/2017.
  */
 public class Student extends BasicStudent {
+    ArrayList<JsonObject> list_of_exams;
 
     public Student(String name, String surname, Integer year, Tuple<String, Integer>... exams) {
         super(name, surname, year);
         boolean pased = false;
-        ArrayList<JsonObject>  list_of_exams = new ArrayList<>();
+        list_of_exams = new ArrayList<>();
         for (Tuple<String, Integer> exam :exams){
             if(exam.value > 2){
                 pased = true;
@@ -27,7 +29,7 @@ public class Student extends BasicStudent {
             JsonObject newsubject = new JsonObject(name1, mark1, pased1);
             this.list_of_exams.add(newsubject);
         }
-        return this.list_of_exams;
+
     }
 
     public JsonObject toJsonObject() {
