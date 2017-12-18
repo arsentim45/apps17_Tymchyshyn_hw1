@@ -24,7 +24,7 @@ public class Student extends BasicStudent {
                 pased = false;
             }
             JsonPair pased1 = new JsonPair("passed", new JsonBoolean(pased));
-            JsonPair name1 = new JsonPair("course", new JsonBoolean(exam.key));
+            JsonPair name1 = new JsonPair("course", new JsonString(exam.key));
             JsonPair mark1 = new JsonPair("mark", new JsonNumber(exam.value));
             JsonObject newsubject = new JsonObject(name1, mark1, pased1);
             this.list_of_exams.add(newsubject);
